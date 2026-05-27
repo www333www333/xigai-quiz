@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>习概客观题刷题</title>
+    <meta name="theme-color" content="#b4372d" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <span class="brand-mark">习</span>
+          <div>
+            <h1>习概刷题</h1>
+            <p id="sourceInfo">载入题库中</p>
+          </div>
+        </div>
+
+        <section class="panel stats-panel">
+          <div>
+            <strong id="totalCount">0</strong>
+            <span>题库</span>
+          </div>
+          <div>
+            <strong id="doneCount">0</strong>
+            <span>已刷</span>
+          </div>
+          <div>
+            <strong id="accuracy">0%</strong>
+            <span>正确率</span>
+          </div>
+        </section>
+
+        <section class="panel controls-panel">
+          <label>
+            <span>练习模式</span>
+            <select id="modeSelect">
+              <option value="all">顺序刷题</option>
+              <option value="random">随机练习</option>
+              <option value="wrong">错题复习</option>
+              <option value="fav">收藏题</option>
+            </select>
+          </label>
+
+          <label>
+            <span>章节</span>
+            <select id="chapterSelect"></select>
+          </label>
+
+          <label>
+            <span>题型</span>
+            <select id="typeSelect">
+              <option value="all">全部题型</option>
+              <option value="single">单选题</option>
+              <option value="multiple">多选题</option>
+              <option value="blank">填空题</option>
+              <option value="judge">判断题</option>
+            </select>
+          </label>
+
+          <label>
+            <span>搜题</span>
+            <input id="searchInput" type="search" placeholder="输入关键词" />
+          </label>
+        </section>
+
+        <section class="panel tools-panel">
+          <button id="resetProgress" type="button">清空记录</button>
+          <button id="shuffleNow" type="button">重排随机</button>
+        </section>
+      </aside>
+
+      <section class="practice">
+        <header class="topbar">
+          <div>
+            <span id="typeBadge" class="badge">单选题</span>
+            <span id="chapterBadge" class="chapter-badge"></span>
+          </div>
+          <div class="progress-copy">
+            <span id="positionText">0 / 0</span>
+            <div class="progress-track"><span id="progressBar"></span></div>
+          </div>
+        </header>
+
+        <article class="question-card">
+          <div class="question-head">
+            <span id="questionNumber" class="question-number">第 1 题</span>
+            <button id="favoriteBtn" class="icon-button" type="button" aria-label="收藏">☆</button>
+          </div>
+
+          <p id="prompt" class="prompt"></p>
+          <div id="answerArea" class="answer-area"></div>
+          <div id="feedback" class="feedback" hidden></div>
+
+          <div class="actions">
+            <button id="prevBtn" type="button">上一题</button>
+            <button id="showAnswerBtn" type="button">看答案</button>
+            <button id="submitBtn" class="primary" type="button">提交</button>
+            <button id="nextBtn" type="button">下一题</button>
+          </div>
+        </article>
+
+        <section class="quick-list" aria-label="题目列表">
+          <div class="quick-list-head">
+            <strong>题目导航</strong>
+            <span id="listCount">0 题</span>
+          </div>
+          <div id="questionList" class="question-list"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="data/questions.js"></script>
+    <script src="app.js"></script>
+    <script>
+      if ("serviceWorker" in navigator && location.protocol === "https:") {
+        navigator.serviceWorker.register("service-worker.js");
+      }
+    </script>
+  </body>
+</html>

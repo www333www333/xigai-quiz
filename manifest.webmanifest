@@ -1,0 +1,17 @@
+{
+  "name": "习概客观题刷题",
+  "short_name": "习概刷题",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f6f4ef",
+  "theme_color": "#b4372d",
+  "description": "习近平新时代中国特色社会主义思想概述客观题刷题工具",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
